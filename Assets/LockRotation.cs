@@ -11,7 +11,7 @@ public class LockRotation : MonoBehaviour {
     }
 
     void Update() {
-        transform.position = new Vector3(0, follow.position.y, -7.0f);
+        transform.position = new Vector3(0, follow.position.y, -13.0f);
     }
 
 }

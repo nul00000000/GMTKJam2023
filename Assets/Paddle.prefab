@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b6deca79c0735949a4eba9e530e48ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transform: {fileID: 9215062130398695015}
-  rigidbody: {fileID: 8743776699239634102}
+  rigidBody: {fileID: 8743776699239634102}
   HingeConstraint: {fileID: 3303901108270821180}
 --- !u!1 &7370691165190043333
 GameObject:
