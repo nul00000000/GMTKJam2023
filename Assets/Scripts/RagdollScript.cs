@@ -9,7 +9,7 @@ public class RagdollScript : MonoBehaviour
     private Rigidbody[] rigidBodies;
     public Renderer cube;
     
-    public bool pressed;
+    public bool pressed = false;
     public float time = 0;
 
     void Start() {
@@ -34,11 +34,14 @@ public class RagdollScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - time > 3) {
+        if (pressed) {
+            if (Time.time - time > 3) {
             SceneManager.LoadScene(1);
-        } else if (Time.time - time > 1) {
-            cube.material.SetColor("_Color", new Color(cube.material.color.r, cube.material.color.g, cube.material.color.b, Mathf.Min(Time.time - time - 1, 204f / 255f)));
-        } 
+            } else if (Time.time - time > 1) {
+                cube.material.SetColor("_Color", new Color(cube.material.color.r, cube.material.color.g, cube.material.color.b, Mathf.Min(Time.time - time - 1, 204f / 255f)));
+            } 
+        }
+        
     }
 
     public void OnClick() {
