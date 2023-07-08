@@ -12,6 +12,10 @@ public class RagdollScript : MonoBehaviour
     public bool pressed = false;
     public float time = 0;
 
+    public AudioSource deathSound;
+    public AudioSource horrorSound;
+    public AudioSource boomSound;
+
     void Start() {
         rigidBodies = GetComponentsInChildren<Rigidbody>();
         DisableRagdoll();
@@ -35,10 +39,12 @@ public class RagdollScript : MonoBehaviour
     void Update()
     {
         if (pressed) {
-            if (Time.time - time > 3) {
+            if (Time.time - time > 6) {
+            horrorSound.Stop();
+            boomSound.Play();
             SceneManager.LoadScene(1);
-            } else if (Time.time - time > 1) {
-                cube.material.SetColor("_Color", new Color(cube.material.color.r, cube.material.color.g, cube.material.color.b, Mathf.Min(Time.time - time - 1, 204f / 255f)));
+            } else if (Time.time - time > 2) {
+                cube.material.SetColor("_Color", new Color(cube.material.color.r, cube.material.color.g, cube.material.color.b, Mathf.Min((Time.time - time - 2) / 3f, 204f / 255f)));
             } 
         }
         
@@ -48,5 +54,7 @@ public class RagdollScript : MonoBehaviour
         pressed = true;
         time = Time.time;
         EnableRagdoll();
+        deathSound.Play();
+        horrorSound.Play();
     }
 }
