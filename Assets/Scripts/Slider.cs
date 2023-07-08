@@ -9,6 +9,7 @@ public class Slider : MonoBehaviour {
     public Transform leftStop;
     public Transform rightStop;
     public bool horizontal = true;
+    public bool useMouse = true;
     public float strength = 1.0f;
     public float length = 4.0f;
     public float distance = 10.0f;
