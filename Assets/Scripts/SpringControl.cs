@@ -11,8 +11,10 @@ public class SpringControl : MonoBehaviour {
     public Transform springRender;
     public Transform leftGuide;
     public Transform rightGuide;
-
+    public AudioSource first;
+    public AudioSource second;
     public float springAmount = 5.0f;
+    public bool edd = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,17 +29,23 @@ public class SpringControl : MonoBehaviour {
         leftGuide.localPosition = new Vector3(-1.1f, springAmount / 4.0f, 0);
         rightGuide.localPosition = new Vector3(1.1f, springAmount / 4.0f, 0);
     }
-
+    
     // Update is called once per frame
     void Update()
     {
         top.WakeUp();
         if(Input.GetKeyDown(KeyCode.Space)) {
+            first.Play();
+            edd = true;
             startTime = Time.time;
             spring.connectedAnchor = new Vector3(0.0f, springAmount, 0.0f);
         }
 
         if(Time.time - startTime > 1.0f) {
+            if (edd) {
+                edd = false;
+                second.Play();
+            }
             spring.connectedAnchor = new Vector3(0.0f, springAmount / 4.5f, 0.0f);
         }
         float h = top.transform.localPosition.y - bottom.transform.localPosition.y;

@@ -31,7 +31,6 @@ public class Paddle : MonoBehaviour
             HingeConstraint.limits = n;
         }
     }
-
     // Update is called once per frame
     void FixedUpdate()
     {
