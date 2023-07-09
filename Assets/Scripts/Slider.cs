@@ -15,6 +15,8 @@ public class Slider : MonoBehaviour {
 
     private bool selected = false;
 
+    private Vector3 worldMouse;
+
     void Start() {
         if(horizontal) {
             transform.eulerAngles = new Vector3();
@@ -55,8 +57,7 @@ public class Slider : MonoBehaviour {
     void Update() {
         Vector3 screenMouse = Input.mousePosition;
         screenMouse.z = 13;
-        Vector3 worldMouse = Camera.main.ScreenToWorldPoint(screenMouse, Camera.MonoOrStereoscopicEye.Mono);
-
+        worldMouse = Camera.main.ScreenToWorldPoint(screenMouse, Camera.MonoOrStereoscopicEye.Mono);
         if(Input.GetMouseButtonDown(0)) {
             if((horizontal && Mathf.Abs(worldMouse.x - slider.position.x) < length / 2 && Mathf.Abs(worldMouse.y - slider.position.y) < 0.5f) || 
                     (!horizontal && Mathf.Abs(worldMouse.y - slider.position.y) < length / 2 && Mathf.Abs(worldMouse.x - slider.position.x) < 0.5f)) {
@@ -66,7 +67,9 @@ public class Slider : MonoBehaviour {
         if(Input.GetMouseButtonUp(0)) {
             selected = false;
         }
+    }
 
+    void FixedUpdate() {
         if(selected) {
             if(worldMouse.x > transform.position.x + distance / 2 - length / 2) {
                 worldMouse.x = transform.position.x + distance / 2 - length / 2;
@@ -79,9 +82,9 @@ public class Slider : MonoBehaviour {
                 worldMouse.y = transform.position.y - distance / 2 + length / 2;
             }
             if(horizontal) {
-                slider.AddForce(new Vector3(worldMouse.x - slider.position.x, 0, 0) * strength);
+                slider.AddForce(new Vector3(worldMouse.x - slider.position.x, 0, 0) * strength * 8);
             } else {
-                slider.AddForce(new Vector3(0, worldMouse.y - slider.position.y, 0) * strength);
+                slider.AddForce(new Vector3(0, worldMouse.y - slider.position.y, 0) * strength * 8);
             }
         }
     }

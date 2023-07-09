@@ -13,9 +13,9 @@ public class Spinner : MonoBehaviour {
         body.maxAngularVelocity = 7;
     }
 
-    void Update() {
+    void FixedUpdate() {
         if(Input.GetKey(KeyCode.W)) {
-            body.AddTorque(new Vector3(0, 0, left ? 10 : -10));
+            body.AddTorque(new Vector3(0, 0, left ? 80 : -80));
         }
     }
 }

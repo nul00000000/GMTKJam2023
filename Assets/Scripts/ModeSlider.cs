@@ -58,11 +58,13 @@ public class ModeSlider : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.E)) {
             target = -target;
         }
+    }
 
+    void FixedUpdate() {
         if(horizontal) {
-            slider.AddForce(new Vector3(target - slider.transform.localPosition.x, 0, 0) * strength);
+            slider.AddForce(new Vector3(target - slider.transform.localPosition.x, 0, 0) * strength * 8);
         } else {
-            slider.AddForce(new Vector3(0, target - slider.transform.localPosition.y, 0) * strength);
+            slider.AddForce(new Vector3(0, target - slider.transform.localPosition.y, 0) * strength * 8);
         }
     }
 }
