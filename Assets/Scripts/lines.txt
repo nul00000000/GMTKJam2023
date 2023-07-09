@@ -1,0 +1,13 @@
+[On Start] Aw, did the wizard switch your soul with the level? L
+
+[On 10 sec of slime] Slimy stuff right? I don't know where it came from and I'm not sure I want to.
+
+[Fall Through Spinner #1] You really just fell right through huh?
+[Fall Through Spinner #2] Was that intentional? There's no achievement for this.
+[Fall Through Spinner #3] I think is what the kids call a skill issue.
+[Fall Through Spinner #10] Again? You know can just close the game if it's that hard.
+
+[Get Past E] You know, my brother took ten minutes to figure that one out. Good Job.
+[Get Past E took 2 minutes] You know, my brother took ten minutes to figure that one out. Just like you.
+
+[Through Gameplay Spinner] WEEEEEEEE

@@ -40,7 +40,6 @@ public class ColliderScript : MonoBehaviour {
             playerBody = collision.gameObject.GetComponentInParent<Rigidbody>();
             colliding = false;
         }
-
     }
 
     void FixedUpdate() {

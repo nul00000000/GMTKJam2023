@@ -13,8 +13,10 @@ public class SpringControl : MonoBehaviour {
     public Transform rightGuide;
     public AudioSource first;
     public AudioSource second;
+    public AudioSource startLine;
     public float springAmount = 5.0f;
-    public bool edd = false;
+    private bool edd = false;
+    private bool startTriggered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,10 @@ public class SpringControl : MonoBehaviour {
     {
         top.WakeUp();
         if(Input.GetKeyDown(KeyCode.Space)) {
+            if(!startTriggered && startLine != null) {
+                startLine.Play();
+                startTriggered = true;
+            }
             first.Play();
             edd = true;
             startTime = Time.time;
