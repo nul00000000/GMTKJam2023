@@ -10,7 +10,7 @@ public class DampingScript : MonoBehaviour
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
             damping.Play();
-            collision.gameObject.GetComponentInParent<Rigidbody>().velocity *= .9f;
+            collision.gameObject.GetComponentInParent<Rigidbody>().velocity *= .05f;
         }
     }
 

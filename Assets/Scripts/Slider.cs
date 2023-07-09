@@ -9,10 +9,11 @@ public class Slider : MonoBehaviour {
     public Transform leftStop;
     public Transform rightStop;
     public bool horizontal = true;
+    public bool useMouse = true;
     public float strength;
     public float length = 4.0f;
     public float distance = 10.0f;
-
+    public Vector3 screenMouse = new Vector3(0, 0, 13);
     private bool selected = false;
 
     private Vector3 worldMouse;
@@ -55,7 +56,11 @@ public class Slider : MonoBehaviour {
     }
 
     void Update() {
-        Vector3 screenMouse = Input.mousePosition;
+        if (useMouse) {    
+            screenMouse = Input.mousePosition;
+        } else {
+        }
+
         screenMouse.z = 13;
         worldMouse = Camera.main.ScreenToWorldPoint(screenMouse, Camera.MonoOrStereoscopicEye.Mono);
         if(Input.GetMouseButtonDown(0)) {

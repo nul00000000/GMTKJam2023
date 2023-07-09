@@ -17,7 +17,7 @@ public class Script : MonoBehaviour
     void Update()
     {   
         if (!pressed) {
-            buttonTransform.localScale = new Vector3(.05f * Mathf.Sin(Time.time) + .2f, .05f * Mathf.Sin(Time.time) + .2f, 1);
+            buttonTransform.localScale = new Vector3(.5f * Mathf.Sin(Time.time) + 2f, .5f * Mathf.Sin(Time.time) + 2f, 1);
         } else {
             buttonTransform.localScale *= .6f;
         }
