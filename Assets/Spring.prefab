@@ -53,13 +53,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   top: {fileID: 4433332041776241720}
   bottom: {fileID: 2055759545968283399}
+  topTransform: {fileID: 4326675604033932695}
+  bottomTransform: {fileID: 7567048384312451932}
   springRender: {fileID: 4591775425664432119}
   leftGuide: {fileID: 260761014376322838}
   rightGuide: {fileID: 313875988504397802}
   first: {fileID: 5066876924468417169}
   second: {fileID: 4630227574428812210}
+  startLine: {fileID: 0}
   springAmount: 5
-  edd: 0
 --- !u!1 &2356405349343507114
 GameObject:
   m_ObjectHideFlags: 0

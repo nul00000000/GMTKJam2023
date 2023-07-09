@@ -9,16 +9,18 @@ public class ResetButton : MonoBehaviour
     public LockRotation mainCamera;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if(Input.GetKeyDown(KeyCode.R)) {
-            mainCamera.follow = Instantiate(recreate, new Vector3(0, 1.36f, 0), new Quaternion()).GetComponentInChildren<Rigidbody>();
+            GameObject obj = Instantiate(recreate, new Vector3(0, 1.36f, 0), new Quaternion());
+            obj.GetComponent<ResetButton>().mainCamera = mainCamera;
+            mainCamera.follow = obj.GetComponentInChildren<Rigidbody>();
             Destroy(gameObject);
         }
     }

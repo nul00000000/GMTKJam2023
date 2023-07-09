@@ -16,7 +16,10 @@ public class WizardShootControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time - time > 1.2 && count == 2) {
+        if (Time.time - time > 1.5 && count == 3) {
+            Destroy(gameObject);
+        }
+        else if (Time.time - time > 1.2 && count == 2) {
             count++;
             Instantiate(bulletPrefab, wizard.transform, false);
         } else if (Time.time - time > .8 && count == 1) {

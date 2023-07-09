@@ -8,6 +8,8 @@ public class SpringControl : MonoBehaviour {
     private SpringJoint spring;
     public Rigidbody top;
     public Rigidbody bottom;
+    public Transform topTransform;
+    public Transform bottomTransform;
     public Transform springRender;
     public Transform leftGuide;
     public Transform rightGuide;
@@ -36,6 +38,9 @@ public class SpringControl : MonoBehaviour {
     void Update()
     {
         top.WakeUp();
+        if (topTransform.localPosition.y < bottomTransform.localPosition.y) {
+            topTransform.localPosition += Vector3.up * 2.5f;
+        }
         if(Input.GetKeyDown(KeyCode.Space)) {
             if(!startTriggered && startLine != null) {
                 startLine.Play();
