@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slime: {fileID: 3124999783730012601}
+  slimeLine: {fileID: 0}
 --- !u!1 &5606257994844790064
 GameObject:
   m_ObjectHideFlags: 0
