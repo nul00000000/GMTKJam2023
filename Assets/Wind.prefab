@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fanTransform: {fileID: 5729966514092299742}
+  noise: {fileID: 7453682809743117443}
   fanHeight: 0.2
   aoeHeight: 4
   windStrength: 30

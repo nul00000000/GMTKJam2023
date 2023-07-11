@@ -10,11 +10,14 @@ public class SettingsScript : MonoBehaviour
     // Start is called before the first frame update
     public UnityEngine.UI.Slider scrollbar1;
     public Scrollbar scrollbar2;
+    public AudioSource gunShot;
+    public AudioSource death;
+    public AudioSource horror;
     
     void Start() {
-
-        // scrollbar1 = GetComponent<UnityEngine.UI.Slider>();
-        // scrollbar2 = gameObject2.GetComponent<UnityEngine.UI.Scrollbar>();
+        GameParams.LoadUserData();
+        scrollbar1.value = GameParams.musicVolumeMultiplier;
+        scrollbar2.value = GameParams.soundVolumeMultiplier;
     }
 
     // Update is called once per frame
@@ -24,11 +27,22 @@ public class SettingsScript : MonoBehaviour
     }
 
     public void OnValueChange1() {
-        Debug.Log(GameParams.musicVolumeMultiplier);
         GameParams.musicVolumeMultiplier = scrollbar1.value;
+        GameParams.SaveUserData();
     }
 
     public void OnValueChange2() {
         GameParams.soundVolumeMultiplier = scrollbar2.value;
+        GameParams.SaveUserData();
+
+    }
+
+
+
+    public void LoadPrefs() {
+        GameParams.LoadUserData();
+
+        scrollbar1.value = GameParams.musicVolumeMultiplier;
+        scrollbar2.value = GameParams.soundVolumeMultiplier;
     }
 }

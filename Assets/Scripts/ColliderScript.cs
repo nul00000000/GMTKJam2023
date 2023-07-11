@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Settings;
 
 public class ColliderScript : MonoBehaviour {
 
     private Rigidbody playerBody;
     public Transform fanTransform;
+    public AudioSource noise;
 
     public float fanHeight = 0.2f;
     public float aoeHeight = 4;
@@ -41,7 +43,9 @@ public class ColliderScript : MonoBehaviour {
             colliding = false;
         }
     }
-
+    void Update() {
+        noise.volume = 0.215f * GameParams.soundVolumeMultiplier;
+    }
     void FixedUpdate() {
         if (colliding) {
             playerBody.AddForce(transform.up * windStrength);

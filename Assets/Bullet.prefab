@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameObj: {fileID: 7490918873487049190}
   cubeBody: {fileID: 5713107792182115897}
+  audioSource: {fileID: 1703435735317829472}
 --- !u!54 &5713107792182115897
 Rigidbody:
   m_ObjectHideFlags: 0

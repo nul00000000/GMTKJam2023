@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Settings;
+
 public class BossScriptFinal : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -38,10 +40,17 @@ public class BossScriptFinal : MonoBehaviour
             rigidBody.isKinematic = true;
         }
     }
-
+    
     // Update is called once per frame
     void Update()
     {
+        w1.volume = 1 * GameParams.soundVolumeMultiplier;
+        w2.volume = 1 * GameParams.soundVolumeMultiplier;
+        w3.volume = 1 * GameParams.soundVolumeMultiplier;
+        w4.volume = 1 * GameParams.soundVolumeMultiplier;
+
+        music.volume = GameParams.musicVolumeMultiplier;
+        jingle.volume = GameParams.musicVolumeMultiplier;
         if (bossStarted) {
             timer += Time.deltaTime;
             // Debug.Log(timer + " " + tired + " " + doingAttack);

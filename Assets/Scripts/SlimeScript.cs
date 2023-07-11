@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Settings;
 
 public class SlimeScript : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class SlimeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        slime.volume = 1 * GameParams.soundVolumeMultiplier;
         if(!played && colliding) {
             time += Time.deltaTime;
         }

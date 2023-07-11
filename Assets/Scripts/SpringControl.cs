@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Settings;
 
 public class SpringControl : MonoBehaviour {
 
@@ -37,6 +38,9 @@ public class SpringControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        first.volume = 0.165f * GameParams.soundVolumeMultiplier;
+        second.volume = 0.103f * GameParams.soundVolumeMultiplier;
+
         top.WakeUp();
         if (topTransform.localPosition.y < bottomTransform.localPosition.y) {
             topTransform.localPosition += Vector3.up * 2.5f;
