@@ -685,7 +685,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7de545d6150371342a9efa08c2456ec4, type: 3}
---- !u!1001 &1626684998458773819
+--- !u!1001 &5208670016752535899
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -693,56 +693,56 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 581689036975098367, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
-      propertyPath: m_Name
-      value: Firewind
-      objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.01
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3647138923043953818, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+    - target: {fileID: 6124610486672069111, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6177186072278039628, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
+      propertyPath: m_Name
+      value: Firewind
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5ed70cbc23f7fbc4c874609f5a3e88c8, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 7e594fc83b90c6d4792d5af76d4fd9aa, type: 3}
