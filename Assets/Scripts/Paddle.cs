@@ -18,13 +18,15 @@ public class Paddle : MonoBehaviour
     [ExecuteInEditMode]
     void OnValidate() {
         if(left) {
-            transform.eulerAngles = new Vector3(0, 0, 0);
+            HingeConstraint.anchor = new Vector3(0.5f, 0, 0);
+            rigidBody.centerOfMass = new Vector3(0.5f, 0, 0);
             JointLimits n = HingeConstraint.limits;
             n.min = -80;
             n.max = 50;
             HingeConstraint.limits = n;
         } else {
-            transform.eulerAngles = new Vector3(0, 0, 180);
+            HingeConstraint.anchor = new Vector3(-0.5f, 0, 0);
+            rigidBody.centerOfMass = new Vector3(-0.5f, 0, 0);
             JointLimits n = HingeConstraint.limits;
             n.min = -50;
             n.max = 80;

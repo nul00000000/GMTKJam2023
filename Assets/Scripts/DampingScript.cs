@@ -9,6 +9,7 @@ public class DampingScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Player") {
+            Debug.Log(collision.impulse);
             damping.Play();
             collision.gameObject.GetComponentInParent<Rigidbody>().velocity *= .05f;
         }
