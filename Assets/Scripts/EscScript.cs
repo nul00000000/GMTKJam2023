@@ -28,9 +28,10 @@ public class EscScript : MonoBehaviour
         panel.SetActive(false);
         musicSlider.gameObject.SetActive(false);
         soundSlider.gameObject.SetActive(false);
-
-        voiceLines = voiceLineObject.GetComponentsInChildren<AudioSource>();
-
+        
+        if (voiceLineObject != null) {
+            voiceLines = voiceLineObject.GetComponentsInChildren<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -45,7 +46,9 @@ public class EscScript : MonoBehaviour
     }
     
     void Update() {
-        gameMusic.volume = 1 * GameParams.musicVolumeMultiplier;
+        if (gameMusic != null) {
+            gameMusic.volume = 1 * GameParams.musicVolumeMultiplier;
+        }
 
         foreach (AudioSource voiceline in voiceLines) {
             voiceline.volume = 1 * GameParams.soundVolumeMultiplier;
