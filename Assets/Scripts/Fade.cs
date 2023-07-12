@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Fade : MonoBehaviour {
 
-    public static bool eSlide = true;
-
     public bool on = true;
 
     public GameObject[] defaultOn;
@@ -37,6 +35,6 @@ public class Fade : MonoBehaviour {
             for(int i = 0; i < defaultOff.Length; i++) {
                 defaultOff[i].SetActive(!on);
             }
-        } 
+        }
     }
 }
