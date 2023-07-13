@@ -15,11 +15,14 @@ public class ColliderScript : MonoBehaviour {
     
     private bool colliding = false;
 
+    private Rigidbody rigidBody;
+
     void Start() {
         fanTransform.localPosition = new Vector3(0, fanHeight / 2, 0);
         fanTransform.localScale = new Vector3(2, fanHeight, 2);
         GetComponent<BoxCollider>().center = new Vector3(0, fanHeight + aoeHeight / 2, 0);
         GetComponent<BoxCollider>().size = new Vector3(2, aoeHeight, 2);
+        rigidBody = GetComponent<Rigidbody>();
     }
 
     [ExecuteInEditMode]
@@ -49,6 +52,9 @@ public class ColliderScript : MonoBehaviour {
     void FixedUpdate() {
         if (colliding) {
             playerBody.AddForce(transform.up * windStrength);
+        }
+        if(rigidBody != null) {
+            rigidBody.AddForce(-transform.up * windStrength);
         }
     }
 }

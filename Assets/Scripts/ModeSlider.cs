@@ -7,7 +7,8 @@ public class ModeSlider : MonoBehaviour {
     public Transform path;
     public bool horizontal = true;
     public bool defaultLeft = true;
-    public float strength = 1.0f;
+    public float strengthLeft = 6.0f;
+    public float strengthRight = 6.0f;
     public float length = 4.0f;
     public float distance = 10.0f;
 
@@ -22,13 +23,13 @@ public class ModeSlider : MonoBehaviour {
             transform.eulerAngles = new Vector3();
             slider.transform.localScale = new Vector3(length, 0.4f, 2.0f);
             slider.transform.position = transform.position + new Vector3(target, 0, 0);
-            path.localScale = new Vector3(distance, 0.2f, 0.2f);
+            path.localScale = new Vector3(distance - 0.1f, 0.2f, 0.2f);
             slider.constraints = ~RigidbodyConstraints.FreezePositionX;
         } else {
             transform.eulerAngles = new Vector3();
             slider.transform.localScale = new Vector3(0.4f, length, 2.0f);
             slider.transform.position = transform.position + new Vector3(0, target, 0);
-            path.localScale = new Vector3(0.2f, distance, 0.2f);
+            path.localScale = new Vector3(0.2f, distance - 0.1f, 0.2f);
             slider.constraints = ~RigidbodyConstraints.FreezePositionY;
         }
     }
@@ -43,13 +44,13 @@ public class ModeSlider : MonoBehaviour {
             transform.eulerAngles = new Vector3();
             slider.transform.localScale = new Vector3(length, 0.4f, 2.0f);
             slider.transform.position = transform.position + new Vector3(target, 0, 0);
-            path.localScale = new Vector3(distance, 0.2f, 0.2f);
+            path.localScale = new Vector3(distance - 0.1f, 0.2f, 0.2f);
             slider.constraints = ~RigidbodyConstraints.FreezePositionX;
         } else {
             transform.eulerAngles = new Vector3();
             slider.transform.localScale = new Vector3(0.4f, length, 2.0f);
             slider.transform.position = transform.position + new Vector3(0, target, 0);
-            path.localScale = new Vector3(0.2f, distance, 0.2f);
+            path.localScale = new Vector3(0.2f, distance - 0.1f, 0.2f);
             slider.constraints = ~RigidbodyConstraints.FreezePositionY;
         }
     }
@@ -62,9 +63,11 @@ public class ModeSlider : MonoBehaviour {
 
     void FixedUpdate() {
         if(horizontal) {
-            slider.AddForce(new Vector3(target - slider.transform.localPosition.x, 0, 0) * strength * 8);
+            float t = target - slider.transform.localPosition.x;
+            slider.AddForce(new Vector3(t, 0, 0) * (t < 0 ? strengthLeft : strengthRight) * 8);
         } else {
-            slider.AddForce(new Vector3(0, target - slider.transform.localPosition.y, 0) * strength * 8);
+            float t = target - slider.transform.localPosition.y;
+            slider.AddForce(new Vector3(0, t, 0) * (t < 0 ? strengthLeft : strengthRight) * 8);
         }
     }
 }

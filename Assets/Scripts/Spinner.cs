@@ -7,6 +7,7 @@ public class Spinner : MonoBehaviour {
     private Rigidbody body;
 
     public bool left = true;
+    public float strength = 80;
 
     void Start() {
         body = GetComponent<Rigidbody>();
@@ -15,7 +16,7 @@ public class Spinner : MonoBehaviour {
 
     void FixedUpdate() {
         if(Input.GetKey(KeyCode.W)) {
-            body.AddTorque(new Vector3(0, 0, left ? 80 : -80));
+            body.AddTorque(new Vector3(0, 0, left ? strength : -strength));
         }
     }
 }
