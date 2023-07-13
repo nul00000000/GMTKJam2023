@@ -15,6 +15,8 @@ public class EscScript : MonoBehaviour
     public UnityEngine.UI.Slider soundSlider;
     public GameObject panel;
     public AudioSource gameMusic;
+    public GameObject soundImage;
+    public GameObject musicImage;
     public TMP_Text textElement;
     public AudioSource[] voiceLines;
     public GameObject voiceLineObject;
@@ -28,7 +30,8 @@ public class EscScript : MonoBehaviour
         panel.SetActive(false);
         musicSlider.gameObject.SetActive(false);
         soundSlider.gameObject.SetActive(false);
-        
+        soundImage.SetActive(false);
+        musicImage.SetActive(false);
         if (voiceLineObject != null) {
             voiceLines = voiceLineObject.GetComponentsInChildren<AudioSource>();
         }
@@ -60,14 +63,18 @@ public class EscScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape)) {
             showing = !showing;
-
+            // Debug.Log("AOWIDJAOIWJD");
             if (showing) {
                 panel.SetActive(true);
+                soundImage.SetActive(true);
+                musicImage.SetActive(true);
                 musicSlider.gameObject.SetActive(true);
                 soundSlider.gameObject.SetActive(true);
 
             } else {
                 panel.SetActive(false);
+                soundImage.SetActive(false);
+                musicImage.SetActive(false);
                 musicSlider.gameObject.SetActive(false);
                 soundSlider.gameObject.SetActive(false);
             }
