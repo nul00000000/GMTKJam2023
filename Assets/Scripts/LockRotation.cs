@@ -7,6 +7,7 @@ public class LockRotation : MonoBehaviour {
     public Rigidbody follow;
     public float zOffset = -13.0f;
     public bool followRotation = false;
+    public bool followX = true;
 
     private Rigidbody rigidBody;
 
@@ -20,7 +21,13 @@ public class LockRotation : MonoBehaviour {
             transform.position = follow.position;
             rigidBody.velocity = follow.velocity;
         } else {
-            transform.position = new Vector3(0, follow.position.y, zOffset);
+            float x = follow.position.x;
+
+            if (!followX) {
+                x = 0;
+            }
+            
+            transform.position = new Vector3(x, follow.position.y, zOffset);
         }
     }
 
