@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Settings;
 // using UnityEngine.PhysicsModule;
 
 public class RopeScript : MonoBehaviour
@@ -13,6 +14,10 @@ public class RopeScript : MonoBehaviour
     public Transform fanTransform;
     public GameObject renderer;
     private Material sensorMaterial;
+    public AudioSource error;
+    public AudioSource attach;
+    public AudioSource buzz;
+
     public float aoeHeight = 4;
     public float fanHeight = 0.2f;
     public bool colliding = false;
@@ -37,6 +42,7 @@ public class RopeScript : MonoBehaviour
             playerCubeObject = collision.gameObject;
             sensorMaterial.color = new Color(0, 188, 0, sensorMaterial.color.a);
             colliding = true;
+            buzz.Play();
         }
     }
 
@@ -51,14 +57,18 @@ public class RopeScript : MonoBehaviour
 
     void Update()
     {
+        buzz.volume = .233f * GameParams.soundVolumeMultiplier;
+        error.volume = .233f * GameParams.soundVolumeMultiplier;
+        attach.volume = .233f * GameParams.soundVolumeMultiplier;
         if (Input.GetKeyDown(KeyCode.LeftShift)) {
             if (joint != null) {
                 Destroy(joint);
                 joint = null;
                 renderer.SetActive(false);
-
+                attach.Play();
             } else if (colliding) {
                 renderer.SetActive(true);
+                attach.Play();
 
                 joint = playerBody.gameObject.AddComponent<ConfigurableJoint>();
                 joint.autoConfigureConnectedAnchor = false;
@@ -70,6 +80,7 @@ public class RopeScript : MonoBehaviour
                 jointLimit.limit = (playerBody.gameObject.transform.position - anchor.position).magnitude;
                 joint.linearLimit = jointLimit;                
             } else {
+                error.Play();
                 flashTimer = 1;
             }
         }
