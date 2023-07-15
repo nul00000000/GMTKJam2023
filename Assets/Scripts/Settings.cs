@@ -6,7 +6,7 @@ namespace Settings {
     public static class GameParams {
         public static float musicVolumeMultiplier = 1.0f;
         public static float soundVolumeMultiplier = 1.0f;
-
+        public static bool level1SequenceFinished = false;
 
         public static void SaveUserData() {
             PlayerPrefs.SetInt("MusicVolume", (int) (GameParams.musicVolumeMultiplier * 100));
