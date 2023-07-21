@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using Settings;
 
-public class BossScriptFinal : MonoBehaviour
+public class BossScriptFinal : BaseBossScript
 {
     // Start is called before the first frame update
     public bool bossStarted = false;
@@ -106,7 +106,7 @@ public class BossScriptFinal : MonoBehaviour
         }
     }
 
-    public void OnHitbox(Collider collision) {
+    public override void OnHitbox(Collider collision) {
         if (collision.gameObject.tag == "Player" && tired) {
             wizardHealth -= 1;
 

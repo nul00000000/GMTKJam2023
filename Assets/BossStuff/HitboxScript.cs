@@ -5,7 +5,7 @@ using UnityEngine;
 public class HitboxScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public BossScriptFinal bossScript;
+    public BaseBossScript bossScript;
     void Start()
     {
         
