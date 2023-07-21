@@ -6,7 +6,7 @@ public class CubeAttack : MonoBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody cubeRigid;
-    public GameObject gameObject;
+    public new GameObject gameObject;
     public bool left = true;
     public float cubeStrength = 10;
     private float time = 0;

@@ -8,7 +8,7 @@ public class MagnetScript : MonoBehaviour {
     private Rigidbody playerBody;
     public Transform fanTransform;
     public AudioSource noise;
-    public ParticleSystem particleSystem;
+    public new ParticleSystem particleSystem;
 
     public float fanHeight = 0.2f;
     public float aoeHeight = 4;

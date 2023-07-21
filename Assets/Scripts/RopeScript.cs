@@ -12,7 +12,7 @@ public class RopeScript : MonoBehaviour
     public Transform anchor;
     private GameObject playerCubeObject;
     public Transform fanTransform;
-    public GameObject renderer;
+    public new GameObject renderer;
     private Material sensorMaterial;
     public AudioSource error;
     public AudioSource attach;
