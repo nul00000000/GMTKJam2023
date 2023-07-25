@@ -42,7 +42,7 @@ public class RagdollScript : MonoBehaviour
             if (Time.time - time > 6) {
             horrorSound.Stop();
             boomSound.Play();
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(3);
             } else if (Time.time - time > 2) {
                 cube.material.SetColor("_Color", new Color(cube.material.color.r, cube.material.color.g, cube.material.color.b, Mathf.Min((Time.time - time - 2) / 3f, 204f / 255f)));
             } 

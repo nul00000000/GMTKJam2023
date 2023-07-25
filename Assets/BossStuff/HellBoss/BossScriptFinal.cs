@@ -88,7 +88,7 @@ public class BossScriptFinal : BaseBossScript
             timer += Time.deltaTime;
 
             if (timer > 3) {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
         }
 

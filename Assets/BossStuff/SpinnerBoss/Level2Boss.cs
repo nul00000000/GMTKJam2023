@@ -87,7 +87,7 @@ public class Level2Boss : BaseBossScript {
             }
         } else if(stage == 3) {
             if(stageStart + 4.0f < Time.time) {
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(3);
             }
         }
     }

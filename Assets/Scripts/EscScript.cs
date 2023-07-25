@@ -37,6 +37,10 @@ public class EscScript : MonoBehaviour
         }
     }
 
+    public void LoadLevel(int level) {
+        SceneManager.LoadScene(level);
+    }
+
     // Update is called once per frame
     public void MusicOnValueChange() {
         GameParams.musicVolumeMultiplier = musicSlider.value;
