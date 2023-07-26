@@ -12,8 +12,7 @@ public class SpringControl : MonoBehaviour {
     public Transform topTransform;
     public Transform bottomTransform;
     public Transform springRender;
-    public Transform leftGuide;
-    public Transform rightGuide;
+    public Transform springBlocker;
     public AudioSource first;
     public AudioSource second;
     public AudioSource startLine;
@@ -26,14 +25,6 @@ public class SpringControl : MonoBehaviour {
     {
         this.spring = GetComponentInChildren<SpringJoint>();
     }
-
-    [ExecuteInEditMode]
-    void OnValidate() {
-        leftGuide.localScale = new Vector3(0.2f, springAmount / 2.0f, 1);
-        rightGuide.localScale = new Vector3(0.2f, springAmount / 2.0f, 1);
-        leftGuide.localPosition = new Vector3(-1.1f, springAmount / 4.0f, 0);
-        rightGuide.localPosition = new Vector3(1.1f, springAmount / 4.0f, 0);
-    }
     
     // Update is called once per frame
     void Update()
@@ -42,9 +33,7 @@ public class SpringControl : MonoBehaviour {
         second.volume = 0.103f * GameParams.soundVolumeMultiplier;
 
         top.WakeUp();
-        if (topTransform.localPosition.y < bottomTransform.localPosition.y) {
-            topTransform.localPosition += Vector3.up * 2.5f;
-        }
+        Vector3 diff = top.transform.localPosition - bottom.transform.localPosition;
         if(Input.GetKeyDown(KeyCode.Space)) {
             if(!startTriggered && startLine != null) {
                 startLine.Play();
@@ -64,7 +53,19 @@ public class SpringControl : MonoBehaviour {
             spring.connectedAnchor = new Vector3(0.0f, springAmount / 4.5f, 0.0f);
         }
         float h = top.transform.localPosition.y - bottom.transform.localPosition.y;
-        springRender.localScale = new Vector3(1, h, 1);
-        springRender.localPosition = new Vector3(0, 0.125f + h / 2.0f, 0);
+        springRender.localScale = new Vector3(1, Vector3.Magnitude(diff), 1);
+        springRender.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
+        springRender.localRotation = top.transform.localRotation;
+
+        springBlocker.localScale = new Vector3(2, Vector3.Magnitude(diff), 2);
+        springBlocker.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
+        springBlocker.localRotation = top.transform.localRotation;
+    }
+
+    void FixedUpdate() {
+        Vector3 diff = top.transform.localPosition - bottom.transform.localPosition;
+        if (Vector3.Dot(diff, bottom.transform.up) < 0) {
+            top.AddForce(bottom.transform.up * 0.1f);
+        }
     }
 }

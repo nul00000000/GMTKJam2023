@@ -40,7 +40,7 @@ public class SlimeScript : MonoBehaviour
             time += Time.deltaTime;
         }
 
-        if(!played && time > 7) {
+        if(!played && time > 7 && slimeLine) {
             slimeLine.Play();
             played = true;
         }
