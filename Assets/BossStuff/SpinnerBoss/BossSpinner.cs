@@ -14,7 +14,7 @@ public class BossSpinner : MonoBehaviour {
     public float attackArmLength = 9;
     public float rampSpeed = 0.1f;
     public Spinner spinner;
-    public GameObject otherHalf;
+    [SerializeField]
     public Transform[] arms;
 
     private float lengthRamp = 0;
@@ -35,7 +35,6 @@ public class BossSpinner : MonoBehaviour {
     void OnValidate() {
         armDiff = attackArmLength - armLength;
         for(int i = 0; i < arms.Length; i++) {
-            arms[i].localPosition = new Vector3(arms[i].localPosition.x, 2.2f - armLength / 2, 0);
             arms[i].localScale = new Vector3(0.4f, armLength, 2);
         }
     }
@@ -44,7 +43,6 @@ public class BossSpinner : MonoBehaviour {
         if(!attacking) {
             targetLength = attackArmLength;
         }
-        otherHalf.SetActive(true);
         attacking = true;
         spinner.strength = spinStrength;
         spinner.left = left;
@@ -57,7 +55,6 @@ public class BossSpinner : MonoBehaviour {
                 targetLength = armLength;
             }
         }
-        otherHalf.SetActive(false);
         spinner.strength = defaultStrength;
         spinner.left = defaultLeft;
         spinner.codeOverride = false;
@@ -67,7 +64,6 @@ public class BossSpinner : MonoBehaviour {
     void FixedUpdate() {
         lengthRamp = lengthRamp * (1 - rampSpeed) + targetLength * rampSpeed;
         for(int i = 0; i < arms.Length; i++) {
-            arms[i].localPosition = new Vector3(arms[i].localPosition.x, 2.2f - lengthRamp / 2, 0);
             arms[i].localScale = new Vector3(0.4f, lengthRamp, 2);
         }
     }

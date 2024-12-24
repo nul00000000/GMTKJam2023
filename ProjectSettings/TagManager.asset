@@ -13,9 +13,9 @@ TagManager:
   - UI
   - SliderGuides
   - RagdollContainer
-  - SpringGuides
-  - Spring
-  - 
+  - PlayerBox
+  - SpringBlocker
+  - PlayerInteractOnly
   - 
   - 
   - 

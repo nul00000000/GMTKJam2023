@@ -11,7 +11,6 @@ public class Slider : MonoBehaviour {
     public bool horizontal = true;
 
     public float scaleThingi = .4f;
-    public bool useMouse = true;
     public float strength;
     public float length = 4.0f;
     public float distance = 10.0f;
@@ -43,14 +42,14 @@ public class Slider : MonoBehaviour {
         if(horizontal) {
             transform.eulerAngles = new Vector3();
             slider.transform.localScale = new Vector3(length, scaleThingi, 2.0f);
-            path.localScale = new Vector3(distance, 0.2f, 0.2f);
+            path.localScale = new Vector3(distance - 0.1f, 0.2f, 0.2f);
             leftStop.transform.position = new Vector3(transform.position.x - distance / 2 - 0.5f, transform.position.y, transform.position.z);
             rightStop.transform.position = new Vector3(transform.position.x + distance / 2 + 0.5f, transform.position.y, transform.position.z);
             slider.constraints = ~RigidbodyConstraints.FreezePositionX;
         } else {
             transform.eulerAngles = new Vector3();
             slider.transform.localScale = new Vector3(scaleThingi, length, 2.0f);
-            path.localScale = new Vector3(0.2f, distance, 0.2f);
+            path.localScale = new Vector3(0.2f, distance - 0.1f, 0.2f);
             leftStop.transform.position = new Vector3(transform.position.x, transform.position.y - distance / 2 - 0.5f, transform.position.z);
             rightStop.transform.position = new Vector3(transform.position.x, transform.position.y + distance / 2 + 0.5f, transform.position.z);
             slider.constraints = ~RigidbodyConstraints.FreezePositionY;
@@ -58,10 +57,7 @@ public class Slider : MonoBehaviour {
     }
 
     void Update() {
-        if (useMouse) {    
-            screenMouse = Input.mousePosition;
-        } else {
-        }
+        screenMouse = Input.mousePosition;
 
         screenMouse.z = 13;
         worldMouse = Camera.main.ScreenToWorldPoint(screenMouse, Camera.MonoOrStereoscopicEye.Mono);

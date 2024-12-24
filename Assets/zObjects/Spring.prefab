@@ -52,14 +52,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   top: {fileID: 4433332041776241720}
   bottom: {fileID: 2055759545968283399}
-  topTransform: {fileID: 4326675604033932695}
-  bottomTransform: {fileID: 7567048384312451932}
   springRender: {fileID: 4591775425664432119}
   springBlocker: {fileID: 5998821679516907841}
   first: {fileID: 5066876924468417169}
   second: {fileID: 4630227574428812210}
   startLine: {fileID: 0}
   springAmount: 5
+  width: 2
 --- !u!1 &2356405349343507114
 GameObject:
   m_ObjectHideFlags: 0
@@ -342,8 +341,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4398378793815210273}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
-  m_LocalScale: {x: 1, y: 0.45, z: 1}
+  m_LocalPosition: {x: 0, y: 0.3125, z: 0}
+  m_LocalScale: {x: 1, y: 0.375, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 653231569185984595}
@@ -424,9 +423,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5389654648501698413}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
-  m_LocalScale: {x: 2, y: 0.5, z: 2}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.3125, z: 0}
+  m_LocalScale: {x: 2, y: 0.375, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 653231569185984595}
@@ -742,7 +741,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 0
   m_ConnectedAnchor: {x: 0, y: 0.5, z: 0}
   serializedVersion: 2
-  m_Spring: 300
+  m_Spring: 250
   m_Damper: 0.2
   m_MinDistance: 0
   m_MaxDistance: 0
@@ -765,7 +764,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.5, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0, z: 0}
+  m_ConnectedAnchor: {x: 0, y: 2, z: 0}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0

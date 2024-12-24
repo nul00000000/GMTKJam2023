@@ -9,14 +9,13 @@ public class SpringControl : MonoBehaviour {
     private SpringJoint spring;
     public Rigidbody top;
     public Rigidbody bottom;
-    public Transform topTransform;
-    public Transform bottomTransform;
     public Transform springRender;
     public Transform springBlocker;
     public AudioSource first;
     public AudioSource second;
     public AudioSource startLine;
     public float springAmount = 5.0f;
+    public float width = 2.0f;
     private bool edd = false;
     private bool startTriggered = false;
 
@@ -24,6 +23,32 @@ public class SpringControl : MonoBehaviour {
     void Start()
     {
         this.spring = GetComponentInChildren<SpringJoint>();
+        Vector3 diff = top.transform.localPosition - bottom.transform.localPosition;
+        springRender.localScale = new Vector3(width / 2, Vector3.Magnitude(diff), 1);
+        springRender.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
+        springRender.localRotation = top.transform.localRotation;
+
+        springBlocker.localScale = new Vector3(width, Vector3.Magnitude(diff), 2);
+        springBlocker.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
+        springBlocker.localRotation = top.transform.localRotation;
+
+        bottom.transform.localScale = new Vector3(width, 0.25f, 2);
+        top.transform.localScale = new Vector3(width, 0.25f, 2);
+    }
+
+    [ExecuteInEditMode]
+    void OnValidate() {
+        Vector3 diff = top.transform.localPosition - bottom.transform.localPosition;
+        springRender.localScale = new Vector3(width / 2, Vector3.Magnitude(diff), 1);
+        springRender.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
+        springRender.localRotation = top.transform.localRotation;
+
+        springBlocker.localScale = new Vector3(width, Vector3.Magnitude(diff), 2);
+        springBlocker.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
+        springBlocker.localRotation = top.transform.localRotation;
+
+        bottom.transform.localScale = new Vector3(width, 0.25f, 2);
+        top.transform.localScale = new Vector3(width, 0.25f, 2);
     }
     
     // Update is called once per frame
@@ -53,11 +78,11 @@ public class SpringControl : MonoBehaviour {
             spring.connectedAnchor = new Vector3(0.0f, springAmount / 4.5f, 0.0f);
         }
         float h = top.transform.localPosition.y - bottom.transform.localPosition.y;
-        springRender.localScale = new Vector3(1, Vector3.Magnitude(diff), 1);
+        springRender.localScale = new Vector3(width / 2, Vector3.Magnitude(diff), 1);
         springRender.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
         springRender.localRotation = top.transform.localRotation;
 
-        springBlocker.localScale = new Vector3(2, Vector3.Magnitude(diff), 2);
+        springBlocker.localScale = new Vector3(width, Vector3.Magnitude(diff), 2);
         springBlocker.localPosition = (top.transform.localPosition + bottom.transform.localPosition) / 2;
         springBlocker.localRotation = top.transform.localRotation;
     }
